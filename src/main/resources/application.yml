@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:~/db/test
+    driver-class-name: org.h2.Driver
+    username: TEST
+    password: test
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
