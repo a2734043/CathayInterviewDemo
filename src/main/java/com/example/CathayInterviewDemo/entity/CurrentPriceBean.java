@@ -39,4 +39,14 @@ public class CurrentPriceBean {
     public void setBpi(Map<String, Object> bpi) {
         this.bpi = bpi;
     }
+
+    @Override
+    public String toString() {
+        return "CurrentPriceBean{" +
+                "time=" + time +
+                ", disclaimer='" + disclaimer + '\'' +
+                ", chartName='" + chartName + '\'' +
+                ", bpi=" + bpi +
+                '}';
+    }
 }

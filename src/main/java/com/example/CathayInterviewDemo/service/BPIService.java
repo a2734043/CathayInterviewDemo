@@ -5,23 +5,16 @@ import com.example.CathayInterviewDemo.entity.CurrentPriceBean;
 import com.example.CathayInterviewDemo.repository.CurrencyNameRepository;
 import com.example.CathayInterviewDemo.utils.HttpUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import org.springframework.stereotype.Service;
 
-import java.util.regex.Pattern;
-
 @Service
 public class BPIService {
-    private ObjectMapper objectMapper = new ObjectMapper();
     @Autowired
     CurrencyNameRepository currencyNameRepository;
 

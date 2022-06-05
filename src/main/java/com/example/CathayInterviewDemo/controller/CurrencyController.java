@@ -1,7 +1,6 @@
 package com.example.CathayInterviewDemo.controller;
 
 import com.example.CathayInterviewDemo.entity.CurrencyName;
-import com.example.CathayInterviewDemo.repository.CurrencyNameRepository;
 import com.example.CathayInterviewDemo.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
