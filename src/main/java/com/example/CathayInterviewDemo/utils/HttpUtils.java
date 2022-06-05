@@ -8,12 +8,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.time.Duration;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class HttpUtils {
     private static ObjectMapper objectMapper = new ObjectMapper();
-//    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private static ConnectionPool connectionPool = new ConnectionPool(20, 10, TimeUnit.MINUTES);
     private static OkHttpClient client = new OkHttpClient.Builder().connectTimeout(Duration.ofMillis(10000))
             .readTimeout(Duration.ofMillis(10000))
@@ -22,10 +20,7 @@ public class HttpUtils {
             .build();
     private static String url = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
-    public static void main(String[] args){
-        get();
-    }
-    public static String get() {
+    public static CurrentPriceBean get() {
         Request request = new Request.Builder().url(url).build();
         Response response = null;
         try {
@@ -40,16 +35,10 @@ public class HttpUtils {
                     e.printStackTrace();
                 }
 
-                Map<String, Object> bpiList = currentPriceBean.getBpi();
-                bpiList.keySet().forEach((key) -> {
-                    Map<String, Object> bpiMap = (Map<String, Object>) bpiList.get(key);
-                    System.err.println(bpiMap.values());
-                });
-
-                return res;
+                return currentPriceBean;
             }
         } catch (Exception e) {
         }
-        return "";
+        return null;
     }
 }
